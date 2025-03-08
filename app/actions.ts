@@ -1,9 +1,10 @@
 'use server'
 
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import {prisma} from "@/lib/prisma";
 
 export async function getUserId() {
-    const { userId } = auth();
+    const { userId } = await auth();
     return userId;
 }
 

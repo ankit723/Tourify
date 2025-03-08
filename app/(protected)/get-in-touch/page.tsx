@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/ui/card';
 import { MessageSquare } from 'lucide-react';
-import ContactForm from '../components/contact/ContactForm';
+import ContactForm from '../../components/contact/ContactForm';
 
 export default function GetInTouchPage() {
 
