@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import CustomizeSearch from '../../components/customize/CustomizeSearch';
 import TravellerForm from '../../components/customize/TravellerForm';
 import RoomOptions from '../../components/customize/RoomOptions';
@@ -18,7 +17,6 @@ export default function CustomizePage() {
   const [selectedDestination, setSelectedDestination] = useState('');
   const [days, setDays] = useState(0);
   const [travellerType, setTravellerType] = useState('');
-  const router = useRouter();
 
   const handleDestinationSelect = (destination: string) => {
     setSelectedDestination(destination);

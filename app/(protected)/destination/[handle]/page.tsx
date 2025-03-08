@@ -1,28 +1,12 @@
 import { Suspense } from 'react';
 import TripList from '../../../components/destination/TripList';
-import { MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import ExpertButton from '../../../components/destination/ExpertButton';
 
 interface PageProps {
   params: Promise<{ handle: string }>;
 }
 
-const ExpertButton = () => {
-  'use client';
-  return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-      <Button
-        size="lg"
-        className="shadow-lg"
-        onClick={() => window.location.href = '/get-in-touch'}
-      >
-        <MessageCircle className="mr-2 h-5 w-5" />
-        Talk to an Expert
-      </Button>
-    </div>
-  );
-};
 
 export default async function DestinationPage({ params }: PageProps) {
   const { handle } = await params;
@@ -49,7 +33,7 @@ export default async function DestinationPage({ params }: PageProps) {
         </Suspense>
 
         {/* Fixed Talk to Expert Button */}
-        
+        <ExpertButton />
       </div>
     </main>
   );

@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface Destination {
-  title: string;
   handle: string;
   img: string;
 }
@@ -23,9 +22,7 @@ const PopularDestinations = () => {
       try {
         const response = await fetch('https://json-data-1wm2.onrender.com/featured-destination');
         const data = await response.json();
-        if (data.destination.length > 0) {
-          setDestinations(data.destination);
-        }
+        setDestinations(data.destination);
       } catch (error) {
         console.error('Error fetching destinations:', error);
       } finally {
@@ -53,22 +50,22 @@ const PopularDestinations = () => {
           <div className="relative h-48">
             <Image
               src={destination.img}
-              alt={destination.title}
+              alt={destination.handle}
               fill
               className="object-cover"
             />
           </div>
           <CardHeader>
-            <CardTitle>{destination.title}</CardTitle>
+            <CardTitle>{destination.handle}</CardTitle>
           </CardHeader>
-          <CardFooter>
+          <div className="p-6 pt-0">
             <Button 
               className="w-full"
               onClick={() => router.push(`/destination/${destination.handle}`)}
             >
               Explore
             </Button>
-          </CardFooter>
+          </div>
         </Card>
       ))}
     </div>

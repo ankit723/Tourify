@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Clock, Wifi, Coffee, Utensils, Car, Hotel } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 
 interface Trip {
   id: number;
@@ -19,7 +19,7 @@ interface TripCardProps {
   trip: Trip;
 }
 
-const amenityIcons: Record<string, any> = {
+const amenityIcons: Record<string, LucideIcon> = {
   'wifi': Wifi,
   'food': Utensils,
   'coffee': Coffee,
@@ -37,8 +37,6 @@ const amenityIcons: Record<string, any> = {
 };
 
 export default function TripCard({ trip }: TripCardProps) {
-  const [imageError, setImageError] = useState(false);
-
   return (
     <Card className="overflow-hidden">
       <div className="relative h-48 bg-muted">
@@ -47,7 +45,6 @@ export default function TripCard({ trip }: TripCardProps) {
           alt={trip.name}
           fill
           className="object-cover transition-opacity duration-300"
-          onError={() => setImageError(true)}
           priority={false}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />

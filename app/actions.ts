@@ -1,9 +1,11 @@
 'use server'
 
-import { auth } from "@clerk/nextjs/server";
-import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
-import { z } from "zod";
+import { auth } from "@clerk/nextjs";
+
+export async function getUserId() {
+    const { userId } = auth();
+    return userId;
+}
 
 export async function getUser() {
     const { userId } = await auth();

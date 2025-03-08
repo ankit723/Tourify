@@ -62,7 +62,7 @@ export default function TravellerForm({ onSelect }: TravellerFormProps) {
       </div>
 
       <p className="text-center text-muted-foreground">
-        Select who you'll be traveling with to help us customize your experience
+        Select who you&apos;ll be traveling with to help us customize your experience
       </p>
     </div>
   );
